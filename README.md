@@ -115,6 +115,12 @@ o balanceamento de carga entre N instâncias da aplicação.
 Para este projeto, o docker foi configurado para subir 2 instâncias exatamente iguais do container da aplicação, facilitando
 a escalabilidade conforme a necessidade.
 
+## 🏎️ Cache
+Com o Redis, o recurso de Cache foi implementado contribuindo para reduzir o tempo de resposta das requisições, deixando a
+aplicação mais performática.  
+Quando uma pesquisa for feita, a aplicação sempre buscará os dados primeiramente no Cache para trazê-los mais rapidamente,
+ evitando novas consultas ao banco de dados e novas requisições externas no Wikipedia.
+
 ## 🎯 Testes Automatizados
 Os testes cobrem toda a jornada de pesquisa de moedas.      
 Ex.:

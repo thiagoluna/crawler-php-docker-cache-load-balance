@@ -47,7 +47,7 @@ Para este projeto o Crawling será feito na página [ISO 4217](https://pt.wikipe
 
 ## ⚙️ Instalação e execução
 
-## 1- Clonar o Projeto e Criar Rede Externa do Docker
+## 1- Clonar o Projeto
 ### Passo a passo
 Clonar o Repositório
 ```sh

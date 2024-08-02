@@ -1,0 +1,153 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Wikipedia Crawler",
+        "description": "Crawler Wikipedia",
+        "license": {
+            "name": "MIT",
+            "url": ""
+        },
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8990",
+            "description": "API"
+        }
+    ],
+    "paths": {
+        "/api/v1/currencies": {
+            "post": {
+                "tags": [
+                    "Currencies"
+                ],
+                "summary": "List Currencies Data",
+                "description": "List Currencies Data from Wikipedia",
+                "operationId": "currency",
+                "requestBody": {
+                    "description": "You should send at least 1 field (code or code_list or number or number_lists) and no more than 1",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "code": {
+                                        "type": "string",
+                                        "example": "GRP"
+                                    },
+                                    "code_list": {
+                                        "type": "array",
+                                        "items": {},
+                                        "example": [
+                                            "GBP",
+                                            "GEL",
+                                            "HKD"
+                                        ]
+                                    },
+                                    "number": {
+                                        "type": "array",
+                                        "items": {},
+                                        "example": [
+                                            826
+                                        ]
+                                    },
+                                    "number_lists": {
+                                        "type": "array",
+                                        "items": {},
+                                        "example": [
+                                            826,
+                                            981
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {},
+                                            "example": [
+                                                {
+                                                    "code": "GBP",
+                                                    "number": "826",
+                                                    "decimal": "2",
+                                                    "currency": "Libra Esterlina",
+                                                    "currency_locations": [
+                                                        {
+                                                            "location: ": "Reino Unido",
+                                                            "flag: ": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom.png"
+                                                        },
+                                                        {
+                                                            "location: ": "Ilha de Man",
+                                                            "flag: ": ""
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "code": "GEL",
+                                                    "number": "981",
+                                                    "decimal": "2",
+                                                    "currency": "Lari",
+                                                    "currency_locations": [
+                                                        {
+                                                            "location: ": "Georgia",
+                                                            "flag: ": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Georgia.png"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validate Errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The number field must be an array."
+                                        },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "number": {
+                                                        "type": "string",
+                                                        "example": "The number field must be an array."
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Currencies",
+            "description": "Currencies"
+        }
+    ]
+}

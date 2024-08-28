@@ -1,5 +1,5 @@
 <h2 align="center">
-    <img src="public/images/logo_logcomex.jpeg" alt="Logcomex" width="30" /> Desafio Logcomex
+    Crawler - Webscraping
 </h2>
 
 ## 🚀 Tecnologias
